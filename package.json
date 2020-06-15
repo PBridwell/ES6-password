@@ -1,0 +1,28 @@
+{
+  "name": "es6-password",
+  "version": "1.0.0",
+  "description": "an ES6 password-generator",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PBridwell/ES6-password.git"
+  },
+  "author": "Patrick Bridwell",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PBridwell/ES6-password/issues"
+  },
+  "homepage": "https://github.com/PBridwell/ES6-password#readme",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-handlebars": "^4.0.4",
+    "mongoose": "^5.9.18",
+    "morgan": "^1.10.0",
+    "path": "^0.12.7"
+  }
+}
