@@ -3,10 +3,10 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const PasswordSchema = new Schema({
-  username: {
+  password: {
     type: String,
     trim: true,
-    required: 'Username is Required'
+    required: 'Password is Required'
   },
 });
 // Export for use in index model

@@ -16,7 +16,6 @@ app.use(express.static("public"));
 // Mongoose connection
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/passworddb", { useNewUrlParser: true });
 // Set handlebars
-// Set Handlebars.
 const exphbs = require('express-handlebars');
 
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
@@ -24,8 +23,8 @@ app.set('view engine', 'handlebars');
 
 
 // routes
-app.use(require("./routes/api.js"));
-app.use(require('./routes/htmlRoutes.js'));
+// app.use(require("./routes/api.js"));
+require('./routes/htmlRoutes.js')(app);
 
 app.listen(PORT, () => {
   console.log(`App running on port ${PORT}!`);
