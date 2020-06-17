@@ -28,9 +28,9 @@ generateEl.addEventListener('click', () => {
 
 // Object that holds all of our functions 
 
-const objKeys = Object.keys(randomFunc);
-console.log(objKeys);
-console.log('random key',randomFunc[objKeys[Math.floor(Math.random()*4)]]());
+// const objKeys = Object.keys(randomFunc);
+// console.log(objKeys);
+// console.log('random key',randomFunc[objKeys[Math.floor(Math.random()*4)]]());
 
 // Randomizer functions defined below 
 function getLower() {
