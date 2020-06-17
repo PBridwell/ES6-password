@@ -9,22 +9,31 @@ const generateEl = document.getElementById('generate');
 const clipboard = document.getElementById('clipboard');
 const saveBtn = document.getElementById('savePass');
 // =================================================
+// Obj holds our randomizers
 const randomFunc = {
-	// lower: getLower,
-	// upper: getUpper,
-	// number: getNumber,
-	// symbol: getSymbol
+	lower: getLower,
+	upper: getUpper,
+	number: getNumber,
+	symbol: getSymbol
 };
-// dummy check vars 
-const a = true;
-
-
-generateEl.addEventListener('click', () => {
-    if (a) {
-    randomFunc.lower = getLower
-    }
-    console.log('add to obj', randomFunc)
+// Adds event listener to copy button
+clipboard.addEventListener('click', () => {
+	const textarea = document.createElement('textarea');
+	const password = resultEl.innerText;
+	// if no password, exits block
+	if(!password) { return; }
+	
+	textarea.value = password;
+	document.body.appendChild(textarea);
+    textarea.select();
+    // this holds copy functionality 
+	document.execCommand('copy');
+	textarea.remove();
+	alert('Password copied to clipboard');
 });
+
+
+
 
 // Object that holds all of our functions 
 
