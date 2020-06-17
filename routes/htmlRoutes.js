@@ -5,16 +5,13 @@ const express = require('express');
 
 module.exports = (app) => {
 
-    // open the home page for the user to sign in
+    // gets the homepage and renders saved passwords 
     app.get('/', (req,res) => {
         db.Password.find({}).then(data =>{
-            
-            const passwords = {
-                password: data.password
-
-            };
-            console.log(data)
-            res.render('index', passwords);
+        const passwords = []
+        // Pushes items from response to empty passwords array
+        data.forEach(item => passwords.push(item.password))
+        res.render('index', {passwords});
         }) 
        
     });

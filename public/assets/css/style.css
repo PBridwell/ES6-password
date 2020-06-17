@@ -82,6 +82,13 @@ input[type=checkbox] {
 	align-items: center;
 	margin: 15px 0;
 }
+#pass-list {
+    height: 150px;
+    width: 350px;
+    overflow: scroll;
+    background-color: #fff;
+    color: aqua;
+}
 
 @media screen and (max-width: 400px) {
 	.result-container {
