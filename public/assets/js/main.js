@@ -21,8 +21,8 @@ clipboard.addEventListener('click', () => {
 	const textarea = document.createElement('textarea');
 	const password = resultEl.innerText;
 	// if no password, exits block
-	if(!password) { return; }
-	
+    if(!password) { return; }
+    // traverse DOM
 	textarea.value = password;
 	document.body.appendChild(textarea);
     textarea.select();
@@ -31,11 +31,48 @@ clipboard.addEventListener('click', () => {
 	textarea.remove();
 	alert('Password copied to clipboard');
 });
+// Listener for generate button
+generate.addEventListener('click', () => {
+    // Logic to check for character type checkboxes
+	const length = +lengthEl.value;
+	const hasLower = lowercaseEl.checked;
+	const hasUpper = uppercaseEl.checked;
+	const hasNumber = numbersEl.checked;
+	const hasSymbol = symbolsEl.checked;
+	
+	resultEl.innerText = generatePassword(hasLower, hasUpper, hasNumber, hasSymbol, length);
+});
+
+ generatePassword = (lower, upper, number, symbol, length) => {
+	let generatedPassword = '';
+	const typesCount = lower + upper + number + symbol;
+	const typesArr = [{lower}, {upper}, {number}, {symbol}].filter(item => Object.values(item)[0]);
+	
+	// Doesn't have a selected type
+	if(typesCount === 0) {
+		return '';
+	}
+	
+	// create a loop
+	for(let i=0; i<length; i+=typesCount) {
+		typesArr.forEach(type => {
+			const funcName = Object.keys(type)[0];
+			generatedPassword += randomFunc[funcName]();
+		});
+	}
+	
+	const finalPassword = generatedPassword.slice(0, length);
+	
+	return finalPassword;
+};
+    
 
 
 
 
-// Object that holds all of our functions 
+
+
+
 
 // const objKeys = Object.keys(randomFunc);
 // console.log(objKeys);
