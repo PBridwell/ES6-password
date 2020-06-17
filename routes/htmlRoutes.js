@@ -1,10 +1,17 @@
-// var db = require('../models');
+var db = require('../models');
 
 
 module.exports = (app) => {
 
     // open the home page for the user to sign in
     app.get('/', (req,res) => {
-        res.render('index')
+        db.Password.find({}).then(data =>{
+            console.log(data)
+            const passwords = {
+                password: data
+            };
+            res.render('index', passwords);
+        }) 
+       
     });
 };
