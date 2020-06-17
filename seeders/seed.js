@@ -6,7 +6,7 @@ mongoose.connect("mongodb://localhost/passworddb", {
   useFindAndModify: false
 });
 
-let passwordSeed = [
+const passwordSeed = [
     {
         password: "qwerfghy2354?!"
     },
