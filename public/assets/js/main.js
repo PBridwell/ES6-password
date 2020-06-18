@@ -53,11 +53,13 @@ generate.addEventListener('click', () => {
 		return '';
 	}
 	
-	// create a loop
+	// create a loop to go through randomizer funcs
 	for(let i=0; i<length; i+=typesCount) {
 		typesArr.forEach(type => {
 			const funcName = Object.keys(type)[0];
-			generatedPassword += randomFunc[funcName]();
+            generatedPassword += randomFunc[funcName]();
+            console.log('obj keys:', Object.keys(type)[0])
+            console.log('func name', funcName)
 		});
 	}
 	
@@ -65,6 +67,26 @@ generate.addEventListener('click', () => {
 	
 	return finalPassword;
 };
+// Init listener for Save button
+saveBtn.addEventListener('click', () => {
+    const newPass = resultEl.innerText;
+    console.log('to be saved', newPass);
+    fetch("/update/", {
+        method: "post",
+        headers: {
+            Accept: "application/json, text/plain, */*",
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            newPass,
+            
+        })
+    })
+    .then((response) => {
+        return response.json()
+    })
+});
+    
     
 
 
@@ -74,9 +96,7 @@ generate.addEventListener('click', () => {
 
 
 
-// const objKeys = Object.keys(randomFunc);
-// console.log(objKeys);
-// console.log('random key',randomFunc[objKeys[Math.floor(Math.random()*4)]]());
+
 
 // Randomizer functions defined below 
 function getLower() {

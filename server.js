@@ -23,7 +23,7 @@ app.set('view engine', 'handlebars');
 
 
 // routes
-// app.use(require("./routes/api.js"));
+require("./routes/apiRoutes.js")(app);
 require('./routes/htmlRoutes.js')(app);
 
 app.listen(PORT, () => {
