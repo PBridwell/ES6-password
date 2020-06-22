@@ -4,15 +4,15 @@ const mongojs = require('mongojs');
 const mongoose = require('mongoose');
 
 module.exports = (app) => {
-    app.post('/update/', (req, res) => {
-        console.log(req.body);
-
-  db.Password.insert(req.body, (error, data) => {
-    if (error) {
-      res.json(error);
-    } else {
-      res.send(data);
-    }
-    });
- });
-};
+    app.post("/api/workouts", (req, res) => {
+        db.create({
+            password: req.body
+        })
+        .then(dbPass => {
+          res.json(dbPass);
+        })
+        .catch(err => {
+          res.json(err);
+        })
+    })
+}
