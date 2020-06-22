@@ -14,6 +14,7 @@ app.use(express.json());
 app.use(express.static("public"));
 //==================================================================
 // Mongoose connection
+// test for mlab
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/passworddb", { useNewUrlParser: true });
 // Set handlebars
 const exphbs = require('express-handlebars');
