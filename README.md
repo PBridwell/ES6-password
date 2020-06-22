@@ -28,4 +28,4 @@ All contributions and suggestions are welcome! For direct contributions, please 
 * Name: Patrick Bridwell (@PBridwell)
 * e-mail: patbridwell@cox.net
 * LinkedIn: https://www.linkedin.com/mwlite/in/patrick-bridwell-0a7451133
-
+* Live Link: https://es6-pass.herokuapp.com/
